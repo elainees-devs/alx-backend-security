@@ -1,7 +1,7 @@
 Django==5.2.5
 celery==5.5.0
 redis==5.3.0
-djangorestframework==3.20.0
+djangorestframework==3.16.1
 drf-yasg==1.22.0    # for Swagger documentation
 ipinfo==6.4.0       # if using ipinfo for geolocation
 django-ratelimit==3.0.1
