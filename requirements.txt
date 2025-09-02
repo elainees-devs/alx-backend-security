@@ -5,3 +5,5 @@ djangorestframework==3.16.1
 drf-yasg==1.21.10    # for Swagger documentation
 ipinfo==5.2.0       # if using ipinfo for geolocation
 django-ratelimit==3.0.1
+gunicorn==23.0.0
+
