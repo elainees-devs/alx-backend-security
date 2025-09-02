@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import os
+
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'fallback-secret-key')
+IPINFO_TOKEN = os.getenv('IPINFO_TOKEN')
+CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://localhost:6379/0')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +33,8 @@ SECRET_KEY = 'django-insecure-!py6jq@94rsmf7#gw9%y2tyw&z1-p)udi5n-06@6zz-g!=avs_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['your-server-domain.com', 'www.your-server-domain.com']
+
 
 
 # Application definition
