@@ -26,7 +26,7 @@ IPINFO_ACCESS_TOKEN = config('IPINFO_ACCESS_TOKEN')
 SECRET_KEY = 'django-insecure-!py6jq@94rsmf7#gw9%y2tyw&z1-p)udi5n-06@6zz-g!=avs_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
