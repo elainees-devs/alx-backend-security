@@ -1,25 +1,10 @@
 from django.contrib import admin
-from django.urls import path, include, re_path
-from rest_framework import permissions
-from drf_yasg.views import get_schema_view
-from drf_yasg import openapi
-
-# Swagger/OpenAPI schema setup
-schema_view = get_schema_view(
-    openapi.Info(
-        title="IP Tracking API",
-        default_version='v1',
-        description="Public API documentation",
-    ),
-    public=True,
-    permission_classes=(permissions.AllowAny,),
-)
+from django.urls import path, include
+from ip_tracking.views import home_view, favicon_view
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('ip_tracking.urls')),  # include your app URLs
-
-    # Swagger endpoints
-    re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('admin/', admin.site.urls),               # Admin panel
+    path('', home_view, name='home'),             # Root URL
+    path('favicon.ico', favicon_view, name='favicon'), # Favicon
+    path('api/', include('ip_tracking.urls')),    # Include app URLs
 ]
